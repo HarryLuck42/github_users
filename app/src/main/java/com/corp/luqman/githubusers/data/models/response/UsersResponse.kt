@@ -40,7 +40,26 @@ data class User(
     var type: String?,
     @field:Json(name = "url")
     var url: String?
-): Serializable
+): Serializable{
+    fun convert(): UserLocal = UserLocal(
+        id = id ?: 0,
+        username = username,
+        avatarUrl = avatarUrl,
+        followersUrl = followersUrl,
+        followingUrl = followingUrl,
+        gistsUrl = gistsUrl,
+        gravatarId = gravatarId,
+        htmlUrl = htmlUrl,
+        nodeId = nodeId,
+        organizationsUrl = organizationsUrl,
+        receivedEventsUrl = receivedEventsUrl,
+        reposUrl = reposUrl,
+        siteAdmin = siteAdmin,
+        starredUrl = starredUrl,
+        subscriptionsUrl = subscriptionsUrl,
+        type = type,
+        url = url)
+}
 
 data class UserDetail(
     @field:Json(name = "id")
@@ -105,4 +124,37 @@ data class UserDetail(
     var createdAt: String?,
     @field:Json(name = "updated_at")
     var updatedAt: String?
-): Serializable
+): Serializable{
+    fun convert(): UserLocal = UserLocal(
+        id = id ?: 0,
+        username = username,
+        name = name,
+        avatarUrl = avatarUrl,
+        bio =  bio,
+        blog = blog,
+        company = company,
+        email = email,
+        eventsUrl = eventsUrl,
+        followers = followers,
+        followersUrl = followersUrl,
+        following = following,
+        followingUrl = followingUrl,
+        gistsUrl = gistsUrl,
+        gravatarId = gravatarId,
+        htmlUrl = htmlUrl,
+        location = location,
+        nodeId = nodeId,
+        organizationsUrl = organizationsUrl,
+        publicGists = publicGists,
+        publicRepos = publicRepos,
+        receivedEventsUrl = receivedEventsUrl,
+        reposUrl = reposUrl,
+        siteAdmin = siteAdmin,
+        starredUrl = starredUrl,
+        subscriptionsUrl = subscriptionsUrl,
+        twitterUsername = twitterUsername,
+        type = type,
+        url = url,
+        createdAt = createdAt,
+        updatedAt = updatedAt)
+}

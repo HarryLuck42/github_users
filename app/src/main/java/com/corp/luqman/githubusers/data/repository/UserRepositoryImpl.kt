@@ -11,6 +11,8 @@ interface UserRepositoryImpl {
 
     suspend fun searchUsers(title: String): MutableList<UserLocal>?
 
+    suspend fun getUsersById(id: Int): MutableList<UserLocal>?
+
     suspend fun insertUser(user: UserLocal)
 
     suspend fun deleteFavorite(user: UserLocal)

@@ -11,63 +11,65 @@ data class UserLocal(
     @ColumnInfo(name = "id")
     var id: Int,
     @ColumnInfo(name = "username")
-    var username: String?,
+    var username: String? = "",
     @ColumnInfo(name = "name")
-    var name: String?,
+    var name: String? = "",
     @ColumnInfo(name = "avatar_url")
-    var avatarUrl: String?,
+    var avatarUrl: String? = "",
     @ColumnInfo(name = "bio")
-    var bio: String?,
+    var bio: String? = "",
     @ColumnInfo(name = "blog")
-    var blog: String?,
+    var blog: String? = "",
     @ColumnInfo(name = "company")
-    var company: String?,
+    var company: String? = "",
     @ColumnInfo(name = "email")
-    var email: String?,
+    var email: String? = "",
     @ColumnInfo(name = "events_url")
-    var eventsUrl: String?,
+    var eventsUrl: String? = "",
     @ColumnInfo(name = "followers")
-    var followers: Int?,
+    var followers: Int? = 0,
     @ColumnInfo(name = "followers_url")
-    var followersUrl: String?,
+    var followersUrl: String? = "",
     @ColumnInfo(name = "following")
-    var following: Int?,
+    var following: Int? = 0,
     @ColumnInfo(name = "following_url")
-    var followingUrl: String?,
+    var followingUrl: String? = "",
     @ColumnInfo(name = "gists_url")
-    var gistsUrl: String?,
+    var gistsUrl: String? = "",
     @ColumnInfo(name = "gravatar_id")
-    var gravatarId: String?,
+    var gravatarId: String? = "",
     @ColumnInfo(name = "html_url")
-    var htmlUrl: String?,
+    var htmlUrl: String? = "",
+    @ColumnInfo(name = "location")
+    var location: String? = "",
     @ColumnInfo(name = "node_id")
-    var nodeId: String?,
+    var nodeId: String? = "",
     @ColumnInfo(name = "organizations_url")
-    var organizationsUrl: String?,
+    var organizationsUrl: String? = "",
     @ColumnInfo(name = "public_gists")
-    var publicGists: Int?,
+    var publicGists: Int? = 0,
     @ColumnInfo(name = "public_repos")
-    var publicRepos: Int?,
+    var publicRepos: Int? = 0,
     @ColumnInfo(name = "received_events_url")
-    var receivedEventsUrl: String?,
+    var receivedEventsUrl: String? = "",
     @ColumnInfo(name = "repos_url")
-    var reposUrl: String?,
+    var reposUrl: String? = "",
     @ColumnInfo(name = "site_admin")
-    var siteAdmin: Boolean?,
+    var siteAdmin: Boolean? = false,
     @ColumnInfo(name = "starred_url")
-    var starredUrl: String?,
+    var starredUrl: String? = "",
     @ColumnInfo(name = "subscriptions_url")
-    var subscriptionsUrl: String?,
+    var subscriptionsUrl: String? = "",
     @ColumnInfo(name = "twitter_username")
-    var twitterUsername: String?,
+    var twitterUsername: String? = "",
     @ColumnInfo(name = "type")
-    var type: String?,
+    var type: String? = "",
     @ColumnInfo(name = "url")
-    var url: String?,
+    var url: String? = "",
     @ColumnInfo(name = "created_at")
-    var createdAt: String?,
+    var createdAt: String? = "",
     @ColumnInfo(name = "updated_at")
-    var updatedAt: String?
+    var updatedAt: String? = ""
 )
 
 object ConverterListInt {

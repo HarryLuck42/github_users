@@ -16,6 +16,8 @@ class UsersRepository @Inject constructor(private val apiService: ApiService, pr
 
     override suspend fun searchUsers(title: String): MutableList<UserLocal>? = dao.searchUsers(key = title)
 
+    override suspend fun getUsersById(id: Int): MutableList<UserLocal>? = dao.getUsersById(id)
+
     override suspend fun insertUser(user: UserLocal) = dao.insertUser(user)
 
     override suspend fun deleteFavorite(user: UserLocal) = dao.deleteUser(user)

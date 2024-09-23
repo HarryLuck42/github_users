@@ -6,8 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.corp.luqman.githubusers.R
+import com.corp.luqman.githubusers.databinding.FragmentUsersBinding
+import com.corp.luqman.githubusers.utils.custom.CustomProgressDialog
 
 class UsersFragment : Fragment() {
+
+    private lateinit var progressDialog : CustomProgressDialog
+
+    private lateinit var binding: FragmentUsersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +23,9 @@ class UsersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        binding = FragmentUsersBinding.inflate(inflater)
+        setHasOptionsMenu(true)
+        progressDialog = CustomProgressDialog(binding.root.context, getString(R.string.loading))
         return inflater.inflate(R.layout.fragment_users, container, false)
     }
 }
