@@ -21,5 +21,5 @@ interface UserRepositoryImpl {
         since : Int): Deferred<List<User>>
 
     fun getUserDetail(
-        username : String): Deferred<UserDetail>
+        id : Int): Deferred<UserDetail>
 }

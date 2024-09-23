@@ -3,7 +3,6 @@ package com.corp.luqman.githubusers.utils
 
 object Const {
 
-   val MY_SP_KEY = "mySPKey"
-   val LAST_KEY = "lastKey"
+   val USER_ID = "user_id"
    val language = "en-US"
 }

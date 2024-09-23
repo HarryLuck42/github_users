@@ -47,15 +47,17 @@ class UsersViewModel @Inject constructor(private val repository: UsersRepository
         _keywordValue.value = value
     }
 
-    val usersState = MutableLiveData<UiState<List<UserLocal>>>()
-    val searchUsersState = MutableLiveData<UiState<List<UserLocal>>>()
+    private val _usersState = MutableLiveData<UiState<List<UserLocal>>>()
+
+    val usersState : LiveData<UiState<List<UserLocal>>>
+        get() = _usersState
 
     fun getUserList(since: Int? = null) {
 
         val key = _keywordValue.value
         if (since == null) {
             clearList()
-            usersState.value = UiState.Loading()
+            _usersState.value = UiState.Loading()
         }
 
         viewModelScope.launch {
@@ -69,15 +71,15 @@ class UsersViewModel @Inject constructor(private val repository: UsersRepository
                         list.add(data)
                     }
                     if (since != null) {
-                        usersState.postValue(UiState.OnLoad(list))
+                        _usersState.postValue(UiState.OnLoad(list))
                     } else {
 
-                        usersState.postValue(UiState.Refresh(list))
+                        _usersState.postValue(UiState.Refresh(list))
                     }
                 } else {
                     clearList()
                     val results = repository.getUsers()
-                    usersState.postValue(UiState.Refresh(results?.filter {
+                    _usersState.postValue(UiState.Refresh(results?.filter {
                         (it.username?.contains(
                             key
                         ) ?: false) || (it.name?.contains(key) ?: false)
@@ -86,7 +88,7 @@ class UsersViewModel @Inject constructor(private val repository: UsersRepository
 
 
             } catch (e: Exception) {
-                usersState.postValue(UiState.Error(e))
+                _usersState.postValue(UiState.Error(e))
             }
         }
     }

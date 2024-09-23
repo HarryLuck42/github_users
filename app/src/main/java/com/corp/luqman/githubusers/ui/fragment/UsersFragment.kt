@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.corp.luqman.githubusers.R
@@ -20,6 +21,7 @@ import com.corp.luqman.githubusers.data.models.response.UserLocal
 import com.corp.luqman.githubusers.databinding.FragmentUsersBinding
 import com.corp.luqman.githubusers.databinding.SearchUsersDialogBinding
 import com.corp.luqman.githubusers.ui.adapter.UserAdapter
+import com.corp.luqman.githubusers.utils.Const.USER_ID
 import com.corp.luqman.githubusers.utils.Helpers
 import com.corp.luqman.githubusers.utils.NetworkHelper
 import com.corp.luqman.githubusers.utils.UiState
@@ -99,6 +101,10 @@ class UsersFragment : Fragment() {
         ivNotFoundNow.visibility = View.GONE
         adapter = UserAdapter(viewModel.userList.value ?: mutableListOf(), object: UserAdapter.UserItemListener{
             override fun onClickItem(item: UserLocal) {
+                Bundle().apply {
+                    this.putInt(USER_ID, item.id)
+                    findNavController().navigate(R.id.action_usersFragment_to_userDetailFragment, this)
+                }
 
             }
 

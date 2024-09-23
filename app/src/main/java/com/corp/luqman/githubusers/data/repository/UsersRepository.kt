@@ -22,6 +22,6 @@ class UsersRepository @Inject constructor(private val apiService: ApiService, pr
 
     override suspend fun deleteFavorite(user: UserLocal) = dao.deleteUser(user)
 
-    override fun getUserDetail(username: String): Deferred<UserDetail> = apiService.getUserDetail(username)
+    override fun getUserDetail(id : Int): Deferred<UserDetail> = apiService.getUserDetail(id)
 
 }
