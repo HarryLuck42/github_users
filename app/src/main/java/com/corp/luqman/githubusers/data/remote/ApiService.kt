@@ -14,8 +14,8 @@ interface ApiService {
         @Query("since") since: Int,
     ): Deferred<List<User>>
 
-    @GET("users/{id}")
+    @GET("users/{username}")
     fun getUserDetail(
-        @Path("id") id : String
+        @Path("username") username : String
     ): Deferred<UserDetail>
 }

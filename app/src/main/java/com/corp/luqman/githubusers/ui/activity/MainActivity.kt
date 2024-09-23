@@ -3,7 +3,7 @@ package com.corp.luqman.githubusers.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.*
 import com.corp.luqman.githubusers.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,27 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//        settingNavigation()
     }
 
-//    private fun settingNavigation(){
-//        val navController = findNavController(R.id.: Ronav_movie_fragment)
-//        NavigationUI.setupActionBarWithNavController(this, navController)
-//        appBarConfiguration = AppBarConfiguration(setOf(
-//            R.id.moviesFragment,
-//            R.id.movieNowPlayingFragment,
-//            R.id.movieUpcomingFragment,
-//            R.id.favoriteMoviesFragment
-//        ), binding.mainDrawerLayout)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        binding.navView.setupWithNavController(navController)
-//        binding.navView.itemIconTintList = null
-//    }
 
-
-
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = this.findNavController(R.id.nav_user_fragment)
-//        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-//    }
 }

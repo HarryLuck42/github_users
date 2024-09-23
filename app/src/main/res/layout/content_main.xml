@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<merge
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_main">
+    >
 
-    <fragment
-        android:id="@+id/nav_movie_fragment"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_user_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,4 +19,4 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/user_navigation"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</merge>
