@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,8 +36,6 @@ class UsersFragment : Fragment() {
 
     private lateinit var progressDialog : CustomProgressDialog
 
-    private lateinit var binding: FragmentUsersBinding
-
     private lateinit var adapter : UserAdapter
 
     private val viewModel: UsersViewModel by viewModels()
@@ -45,8 +44,7 @@ class UsersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentUsersBinding.inflate(inflater)
-        setHasOptionsMenu(true)
+        val binding = FragmentUsersBinding.inflate(inflater)
         progressDialog = CustomProgressDialog(binding.root.context, getString(R.string.loading))
         initMenuOptions()
         with(binding){
@@ -54,7 +52,10 @@ class UsersFragment : Fragment() {
             initObserver()
             initScroll()
         }
-        refreshListMovie()
+        if(isAdded){
+            refreshListMovie()
+        }
+
         return binding.root
     }
 
@@ -80,7 +81,7 @@ class UsersFragment : Fragment() {
                 return false
             }
 
-        })
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     private fun refreshListMovie() {
@@ -144,7 +145,7 @@ class UsersFragment : Fragment() {
                 is UiState.Error ->{
                     val message = NetworkHelper().getErrorMessage(it.throwable)
                     Helpers.showGeneralOkDialog(
-                        binding.root.context,
+                        root.context,
                         getString(R.string.perhatian),
                         message
                     )
