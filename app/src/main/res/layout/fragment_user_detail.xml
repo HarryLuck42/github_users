@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_detail_movie"
+        android:id="@+id/layout_detail_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_12dp"
-        tools:context=".ui.fragment.DetailMovieFragment">
+        tools:context=".ui.fragment.UserDetailFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/icon_user"

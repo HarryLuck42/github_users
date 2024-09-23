@@ -64,7 +64,7 @@ class UserDetailFragment : Fragment() {
             }
 
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        layoutDetailMovie.visibility = View.INVISIBLE
+        layoutDetailUser.visibility = View.INVISIBLE
         progressDialog = CustomProgressDialog(requireContext(), getString(R.string.loading))
         progressDialog.show()
     }
@@ -80,7 +80,7 @@ class UserDetailFragment : Fragment() {
         viewModel.detailState.observe(viewLifecycleOwner){
             when(it){
                 is UiState.Loading -> {
-                    layoutDetailMovie.visibility = View.INVISIBLE
+                    layoutDetailUser.visibility = View.INVISIBLE
                     progressDialog.show()
                 }
                 is UiState.Success -> {
@@ -104,7 +104,7 @@ class UserDetailFragment : Fragment() {
     }
 
     private fun FragmentUserDetailBinding.bindData(data: UserDetail){
-        layoutDetailMovie.visibility = View.VISIBLE
+        layoutDetailUser.visibility = View.VISIBLE
         tvTitleHeader.text = data.username
         tvDate.text = data.updatedAt?.reformatDate("yyyy-MM-dd'T'HH:mm:ss'Z'", "dd MMM yyyy") ?: "-"
         textLocation.text = data.location ?: "-"

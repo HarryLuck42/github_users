@@ -53,7 +53,7 @@ class UsersFragment : Fragment() {
             initScroll()
         }
         if(isAdded){
-            refreshListMovie()
+            refreshList()
         }
 
         return binding.root
@@ -67,13 +67,13 @@ class UsersFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
-                    R.id.search_movies -> {
+                    R.id.search_users -> {
                         showDialogSearch(requireView())
                         return true
                     }
 
                     R.id.list_default -> {
-                        refreshListMovie()
+                        refreshList()
                         return true
                     }
                 }
@@ -84,7 +84,7 @@ class UsersFragment : Fragment() {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
-    private fun refreshListMovie() {
+    private fun refreshList() {
         viewModel.clearList()
         viewModel.inputKeyword("")
         viewModel.getUserList()

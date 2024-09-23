@@ -17,8 +17,8 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideWeatherDao(movieDatabase: UserDatabase): UserDao
-            = movieDatabase.userDao()
+    fun provideWeatherDao(userDatabase: UserDatabase): UserDao
+            = userDatabase.userDao()
 
     @Singleton
     @Provides
