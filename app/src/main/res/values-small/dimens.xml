@@ -14,8 +14,8 @@
     <dimen name="height_image_tv_series">350dp</dimen>
 
     <dimen name="text_title_tv_series">18sp</dimen>
-    <dimen name="width_image_user_detail">110dp</dimen>
-    <dimen name="height_image_user_detail">110dp</dimen>
+    <dimen name="width_image_user_detail">150dp</dimen>
+    <dimen name="height_image_user_detail">150dp</dimen>
     <dimen name="size_icon_default">220dp</dimen>
     <dimen name="icon_size">35dp</dimen>
 </resources>
