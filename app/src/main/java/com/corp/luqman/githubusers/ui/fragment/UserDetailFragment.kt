@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.corp.luqman.githubusers.R
 import com.corp.luqman.githubusers.data.models.response.UserDetail
+import com.corp.luqman.githubusers.data.models.response.UserLocal
 import com.corp.luqman.githubusers.databinding.FragmentUserDetailBinding
 import com.corp.luqman.githubusers.utils.Const.USER_ID
 import com.corp.luqman.githubusers.utils.Helpers
@@ -103,7 +104,7 @@ class UserDetailFragment : Fragment() {
         }
     }
 
-    private fun FragmentUserDetailBinding.bindData(data: UserDetail){
+    private fun FragmentUserDetailBinding.bindData(data: UserLocal){
         layoutDetailUser.visibility = View.VISIBLE
         tvTitleHeader.text = data.username
         tvDate.text = data.updatedAt?.reformatDate("yyyy-MM-dd'T'HH:mm:ss'Z'", "dd MMM yyyy") ?: "-"

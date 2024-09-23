@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.corp.luqman.githubusers.data.models.response.UserDetail
+import com.corp.luqman.githubusers.data.models.response.UserLocal
 import com.corp.luqman.githubusers.data.repository.UsersRepository
 import com.corp.luqman.githubusers.utils.UiState
 import com.corp.luqman.githubusers.utils.isMoreThan
@@ -16,9 +17,9 @@ import javax.inject.Inject
 class UserDetailViewModel @Inject constructor(private val repository: UsersRepository) : ViewModel() {
 
 
-    private val _detailState = MutableLiveData<UiState<UserDetail>>()
+    private val _detailState = MutableLiveData<UiState<UserLocal>>()
 
-    val detailState : LiveData<UiState<UserDetail>>
+    val detailState : LiveData<UiState<UserLocal>>
         get() = _detailState
 
     fun getUserList(id: Int) {
@@ -27,14 +28,27 @@ class UserDetailViewModel @Inject constructor(private val repository: UsersRepos
 
         viewModelScope.launch {
             try {
-                val result = repository.getUserDetail(id).await()
-                saveData(result)
-                _detailState.postValue(UiState.Success(result))
+                val current = repository.getUsersById(id)?.firstOrNull()
+                if(current == null){
+                    onSuccess(id)
+                }else if(current.name.isNullOrEmpty()){
+                    onSuccess(id)
+                }else{
+                    _detailState.postValue(UiState.Success(current))
+
+                }
+
 
             } catch (e: Exception) {
                 _detailState.postValue(UiState.Error(e))
             }
         }
+    }
+
+    private suspend fun onSuccess(id: Int) {
+        val result = repository.getUserDetail(id).await()
+        saveData(result)
+        _detailState.postValue(UiState.Success(result.convert()))
     }
 
     private fun saveData(result: UserDetail){

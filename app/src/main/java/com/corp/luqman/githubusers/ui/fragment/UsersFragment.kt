@@ -52,11 +52,14 @@ class UsersFragment : Fragment() {
             initObserver()
             initScroll()
         }
-        if(isAdded){
-            refreshList()
-        }
 
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        refreshList()
     }
 
     private fun initMenuOptions() {
@@ -105,6 +108,7 @@ class UsersFragment : Fragment() {
                 Bundle().apply {
                     this.putInt(USER_ID, item.id)
                     findNavController().navigate(R.id.action_usersFragment_to_userDetailFragment, this)
+                    viewModel.startLoading()
                 }
 
             }
@@ -122,7 +126,11 @@ class UsersFragment : Fragment() {
                     progressDialog.show()
                 }
                 is UiState.OnLoad ->{
-                    viewModel.addList(it.data)
+                    for(value in it.data){
+                        if(viewModel.userList.value?.contains(value) == false){
+                            viewModel.addList(it.data)
+                        }
+                    }
                     adapter.notifyItemRangeInserted(adapter.itemCount - 3, adapter.itemCount + it.data.size)
                     progressDialog.dismiss()
                     viewModel.startLoading()
