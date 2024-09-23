@@ -1,14 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.UserDetailFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_detail_movie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_12dp"
+        tools:context=".ui.fragment.DetailMovieFragment">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_programmer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_title_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_24sp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_8dp"
+            app:layout_constraintStart_toEndOf="@+id/icon_user"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Emily" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_12sp"
+            android:layout_marginStart="@dimen/margin_8dp"
+            app:layout_constraintStart_toEndOf="@+id/icon_user"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_header"
+            tools:text="10-12-2020" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:background="@color/color_grey_70"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintEnd_toStartOf="@+id/text_location"
+            app:layout_constraintStart_toEndOf="@+id/tv_date"
+            app:layout_constraintTop_toTopOf="@+id/tv_date" />
+
+        <TextView
+            android:id="@+id/text_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:textSize="@dimen/text_12sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_header"
+            tools:text="San Francisco, CA" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_user_detail"
+            android:layout_width="@dimen/width_image_user_detail"
+            android:layout_height="@dimen/height_image_user_detail"
+            android:layout_marginTop="@dimen/margin_12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_location"
+            tools:src="@drawable/image_template" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/text_location"
+            android:text="@string/name" />
+
+        <TextView
+            android:id="@+id/colon_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_name"
+            app:layout_constraintStart_toEndOf="@+id/text_company" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/colon_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/colon_name"
+            tools:text="Budget" />
+        
+
+        <TextView
+            android:id="@+id/text_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/email"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/colon_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_email"
+            app:layout_constraintEnd_toEndOf="@+id/colon_name"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/colon_name" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_email"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toEndOf="@+id/colon_name"
+            tools:text="Budget" />
+
+        <TextView
+            android:id="@+id/text_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/company"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+        <TextView
+            android:id="@+id/colon_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_company"
+            app:layout_constraintEnd_toEndOf="@+id/colon_email"
+            app:layout_constraintStart_toStartOf="@+id/colon_email" />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_company"
+            app:layout_constraintEnd_toEndOf="@+id/tv_email"
+            app:layout_constraintStart_toEndOf="@+id/colon_email"
+            tools:text="hjhsdhakjhdkajshsajhdaskjhdaskhdaskhdaskjhdasdasda" />
+
+        <TextView
+            android:id="@+id/text_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/followers"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_company" />
+
+        <TextView
+            android:id="@+id/colon_follower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_followers"
+            app:layout_constraintEnd_toEndOf="@+id/colon_company"
+            app:layout_constraintStart_toStartOf="@+id/colon_company" />
+
+        <TextView
+            android:id="@+id/tv_followers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_followers"
+            app:layout_constraintEnd_toEndOf="@+id/tv_company"
+            app:layout_constraintStart_toEndOf="@+id/colon_company"
+            tools:text="test" />
+
+        <TextView
+            android:id="@+id/text_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_followers"
+            android:text="@string/following" />
+
+        <TextView
+            android:id="@+id/colon_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_following"
+            app:layout_constraintEnd_toEndOf="@+id/colon_follower"
+            app:layout_constraintStart_toStartOf="@+id/colon_follower" />
+
+        <TextView
+            android:id="@+id/tv_following"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_following"
+            app:layout_constraintEnd_toEndOf="@+id/tv_followers"
+            app:layout_constraintStart_toEndOf="@+id/colon_follower"
+            tools:text="test" />
+
+        <TextView
+            android:id="@+id/text_repos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_following"
+            android:text="@string/repos" />
+
+        <TextView
+            android:id="@+id/colon_repos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_repos"
+            app:layout_constraintEnd_toEndOf="@+id/colon_following"
+            app:layout_constraintStart_toStartOf="@+id/colon_following" />
+
+        <TextView
+            android:id="@+id/tv_repos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_repos"
+            app:layout_constraintEnd_toEndOf="@+id/tv_following"
+            app:layout_constraintStart_toEndOf="@+id/colon_follower"
+            tools:text="test" />
+
+        <TextView
+            android:id="@+id/text_gists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_detail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repos"
+            android:text="@string/gists" />
+
+        <TextView
+            android:id="@+id/colon_gists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_gists"
+            app:layout_constraintEnd_toEndOf="@+id/colon_repos"
+            app:layout_constraintStart_toStartOf="@+id/colon_repos" />
+
+        <TextView
+            android:id="@+id/tv_gists"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_gists"
+            app:layout_constraintEnd_toEndOf="@+id/tv_repos"
+            app:layout_constraintStart_toEndOf="@+id/colon_repos"
+            tools:text="test" />
+
+        <TextView
+            android:id="@+id/text_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bio"
+            android:textSize="@dimen/text_16sp"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier3" />
+
+        <TextView
+            android:id="@+id/tv_bio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_bio"
+            tools:text="Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history." />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="text_name,text_email,text_company,text_followers"
+            tools:layout_editor_absoluteX="399dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+        
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="colon_name,colon_email,colon_company,colon_follower,colon_following"
+            tools:layout_editor_absoluteX="399dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="iv_user_detail,tv_gists"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="719dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

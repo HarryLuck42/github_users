@@ -6,21 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.corp.luqman.githubusers.R
+import com.corp.luqman.githubusers.databinding.FragmentUserDetailBinding
 
 class UserDetailFragment : Fragment() {
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_detail, container, false)
+    ): View {
+        val binding = FragmentUserDetailBinding.inflate(inflater)
+        with(binding){
+            binding.initView()
+        }
+        return binding.root
+    }
+
+    private fun FragmentUserDetailBinding.initView(){
+        layoutDetailMovie.visibility = View.GONE
     }
 
     companion object {

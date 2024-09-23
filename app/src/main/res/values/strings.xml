@@ -3,9 +3,8 @@
     <string name="sinopsis">sinopsis</string>
     <string name="detail">detail</string>
     <string name="ok">OK</string>
-    <string name="perhatian">Perhatian</string>
+    <string name="perhatian">Warning</string>
     <string name="loading">Loading...</string>
-    <string name="production">Production</string>
     <string name="not_found_detail">Not Found Any Detail</string>
     <string name="not_found_users">Not Found Any Users</string>
     <string name="reload">Reload</string>
@@ -13,7 +12,14 @@
     <string name="search">Search</string>
     <string name="input_username">Input Username</string>
     <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="company">Company</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="repos">Repos</string>
+    <string name="gists">Gists</string>
+    <string name="bio">Bio</string>
+    <string name="empty_bio">The bio is not available</string>
     <string name="nav_header_subtitle">Hariyanto Lukman</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
