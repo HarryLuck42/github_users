@@ -1,5 +1,6 @@
 package com.corp.luqman.githubusers.data.remote
 
+import com.corp.luqman.githubusers.BuildConfig
 import okhttp3.*
 
 
@@ -9,6 +10,7 @@ class TokenInterceptor : Interceptor{
         val newRequest: Request
 
         newRequest = request.newBuilder()
+            .addHeader("Authorization", "Bearer ${BuildConfig.API_TOKEN}")
             .build()
         return chain.proceed(newRequest)
     }

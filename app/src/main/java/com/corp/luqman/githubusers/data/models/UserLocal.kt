@@ -38,8 +38,6 @@ data class UserLocal(
     var gistsUrl: String?,
     @ColumnInfo(name = "gravatar_id")
     var gravatarId: String?,
-    @ColumnInfo(name = "hireable")
-    var hireable: Any,
     @ColumnInfo(name = "html_url")
     var htmlUrl: String?,
     @ColumnInfo(name = "node_id")

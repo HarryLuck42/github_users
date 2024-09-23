@@ -20,27 +20,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        settingNavigation()
+//        settingNavigation()
     }
 
-    private fun settingNavigation(){
-        val navController = findNavController(R.id.nav_movie_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.moviesFragment,
-            R.id.movieNowPlayingFragment,
-            R.id.movieUpcomingFragment,
-            R.id.favoriteMoviesFragment
-        ), binding.mainDrawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        binding.navView.setupWithNavController(navController)
-        binding.navView.itemIconTintList = null
-    }
+//    private fun settingNavigation(){
+//        val navController = findNavController(R.id.: Ronav_movie_fragment)
+//        NavigationUI.setupActionBarWithNavController(this, navController)
+//        appBarConfiguration = AppBarConfiguration(setOf(
+//            R.id.moviesFragment,
+//            R.id.movieNowPlayingFragment,
+//            R.id.movieUpcomingFragment,
+//            R.id.favoriteMoviesFragment
+//        ), binding.mainDrawerLayout)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        binding.navView.setupWithNavController(navController)
+//        binding.navView.itemIconTintList = null
+//    }
 
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.nav_movie_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = this.findNavController(R.id.nav_user_fragment)
+//        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+//    }
 }

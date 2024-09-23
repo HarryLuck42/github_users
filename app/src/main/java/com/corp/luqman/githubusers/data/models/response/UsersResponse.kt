@@ -73,8 +73,6 @@ data class UserDetail(
     var gistsUrl: String?,
     @field:Json(name = "gravatar_id")
     var gravatarId: String?,
-    @field:Json(name = "hireable")
-    var hireable: Any,
     @field:Json(name = "html_url")
     var htmlUrl: String?,
     @field:Json(name = "location")
