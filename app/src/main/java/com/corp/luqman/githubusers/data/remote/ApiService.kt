@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("users")
     fun getUsers(
-        @Query("per_page") page: Int = 20,
+        @Query("per_page") page: Int = 30,
         @Query("since") since: Int,
     ): Deferred<List<User>>
 
