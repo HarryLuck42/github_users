@@ -13,5 +13,10 @@
     <dimen name="width_image_tv_series">200dp</dimen>
     <dimen name="height_image_tv_series">600dp</dimen>
     <dimen name="size_icon_default">220dp</dimen>
+    <dimen name="size_image_cat">270dp</dimen>
+    <dimen name="height_image_flower">400dp</dimen>
+    <dimen name="width_image_flower">250dp</dimen>
     <dimen name="icon_size">35dp</dimen>
+
+    <dimen name="size_splash_icon">380dp</dimen>
 </resources>

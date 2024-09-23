@@ -61,6 +61,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation "androidx.navigation:navigation-fragment:$version_navigation"
     implementation "androidx.navigation:navigation-ui:$version_navigation"
+    implementation 'androidx.activity:activity:1.8.0'
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-runtime:$roomVersion"

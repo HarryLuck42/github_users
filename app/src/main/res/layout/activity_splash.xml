@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/color_default_white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.SplashActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/second_flower_image"
+        android:layout_width="@dimen/width_image_flower"
+        android:layout_height="@dimen/height_image_flower"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginEnd="-20dp"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/flower_two_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/flower_image"
+        android:layout_width="255dp"
+        android:layout_height="403dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginBottom="-10dp"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flower_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cat_image"
+        android:layout_width="@dimen/size_image_cat"
+        android:layout_height="@dimen/size_image_cat"
+        android:layout_marginBottom="-20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/black_cat" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/splash_icon"
+        android:layout_width="@dimen/size_splash_icon"
+        android:layout_height="@dimen/size_splash_icon"
+        app:srcCompat="@mipmap/app_icon_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/margin_4dp"
+        app:layout_constraintEnd_toEndOf="@+id/splash_icon"
+        app:layout_constraintStart_toStartOf="@+id/splash_icon"
+        app:layout_constraintTop_toBottomOf="@+id/splash_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
