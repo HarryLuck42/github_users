@@ -10,17 +10,14 @@ ext.flavorConfig = {
         tst{
             dimension "server"
             buildConfigField("String", "BASE_URL", envProperties['BASE_URL'])
-            buildConfigField("String", "API_TOKEN", envProperties['API_TOKEN'])
         }
         stagging{
             dimension "server"
             buildConfigField("String", "BASE_URL", envProperties['BASE_URL'])
-            buildConfigField("String", "API_TOKEN", envProperties['API_TOKEN'])
         }
         production{
             dimension "server"
             buildConfigField("String", "BASE_URL", envProperties['BASE_URL'])
-            buildConfigField("String", "API_TOKEN", envProperties['API_TOKEN'])
         }
         productFlavors.all { flavor ->
             if (flavor.hasProperty('myApplicationIdSuffix') && isApplicationProject()) {
