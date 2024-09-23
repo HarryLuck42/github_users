@@ -2,6 +2,7 @@ package com.corp.luqman.githubusers.ui.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
@@ -92,7 +93,7 @@ class UsersFragment : Fragment() {
         rvUsersNow.layoutManager = layoutManager
         rvUsersNow.setHasFixedSize(true)
         rvUsersNow.isFocusable = false
-        rvUsersNow.addItemDecoration(GridSpacingItemDecoration(3, 24, false))
+        rvUsersNow.addItemDecoration(GridSpacingItemDecoration(3, 30, false))
         rvUsersNow.visibility = View.VISIBLE
         tvNotFoundUsers.visibility = View.GONE
         ivNotFoundNow.visibility = View.GONE
@@ -117,6 +118,7 @@ class UsersFragment : Fragment() {
                     viewModel.addList(it.data)
                     adapter.notifyItemRangeInserted(adapter.itemCount - 3, adapter.itemCount + it.data.size)
                     progressDialog.dismiss()
+                    viewModel.startLoading()
                 }
                 is UiState.Refresh ->{
                     if (it.data.isEmpty()) {
@@ -131,6 +133,7 @@ class UsersFragment : Fragment() {
                     viewModel.addList(it.data)
                     adapter.notifyDataSetChanged()
                     progressDialog.dismiss()
+                    viewModel.startLoading()
                 }
                 is UiState.Error ->{
                     val message = NetworkHelper().getErrorMessage(it.throwable)
@@ -153,10 +156,17 @@ class UsersFragment : Fragment() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 if(dy > 0){
-                    if(viewModel.keywordValue.value.isNullOrEmpty()){
+                    val lastVisibleItem = (rvUsersNow.layoutManager!! as GridLayoutManager).findLastVisibleItemPosition()
+                    val totalItemCount = (rvUsersNow.layoutManager!! as GridLayoutManager).itemCount
+                    if(viewModel.keywordValue.value.isNullOrEmpty() && viewModel.isLoading && totalItemCount <= (lastVisibleItem + 1)){
+                        viewModel.stopLoading()
                         val last = viewModel.userList.value?.maxBy { it.id }?.id
-                        last?.let {
-                            viewModel.getUserList(since = last)
+                        Log.d("Harry test", "last key: $last")
+                        val filter = viewModel.userList.value?.filter { it.id == last }
+                        if((filter?.size ?: 0) < 2){
+                            last?.let {
+                                viewModel.getUserList(since = last)
+                            }
                         }
                     }
 

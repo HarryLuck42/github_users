@@ -28,24 +28,24 @@ class ApiTest {
 
     @Before
     fun init(){
-        val client = OkHttpClient.Builder()
-        client.apply {
-            writeTimeout(60, TimeUnit.SECONDS)
-            readTimeout(60, TimeUnit.SECONDS)
-            callTimeout(60, TimeUnit.SECONDS)
-            addInterceptor(TokenInterceptor())
-            val logging = HttpLoggingInterceptor()
-            logging.level = HttpLoggingInterceptor.Level.BODY
-            addInterceptor(logging)
-        }
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .client(client.build())
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .build()
-
-        api = retrofit.create(ApiService::class.java)
+//        val client = OkHttpClient.Builder()
+//        client.apply {
+//            writeTimeout(60, TimeUnit.SECONDS)
+//            readTimeout(60, TimeUnit.SECONDS)
+//            callTimeout(60, TimeUnit.SECONDS)
+//            addInterceptor(TokenInterceptor())
+//            val logging = HttpLoggingInterceptor()
+//            logging.level = HttpLoggingInterceptor.Level.BODY
+//            addInterceptor(logging)
+//        }
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl(BuildConfig.BASE_URL)
+//            .client(client.build())
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+//            .build()
+//
+//        api = retrofit.create(ApiService::class.java)
     }
 
 //    @Test

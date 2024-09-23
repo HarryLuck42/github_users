@@ -14,7 +14,7 @@ buildscript {
         glideVersion = '4.10.0'
         chuckVersion = '4.0.0'
         retrofitVersion = '2.9.0'
-        pagingVersion = '2.1.0'
+        pagingVersion = '3.3.2'
         version_navigation = '2.2.2'
         hiltVersion = '2.42'
         //Hilt Dagger

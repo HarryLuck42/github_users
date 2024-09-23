@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.corp.luqman.githubusers.data.models.response.User
 import com.corp.luqman.githubusers.data.models.response.UserLocal
 import com.corp.luqman.githubusers.data.repository.UsersRepository
 import com.corp.luqman.githubusers.utils.UiState
@@ -14,6 +13,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UsersViewModel @Inject constructor(private val repository: UsersRepository) : ViewModel() {
+
+    var isLoading = false
+
+    fun stopLoading() {
+        isLoading = false
+    }
+
+    fun startLoading(){
+        isLoading = true
+    }
+    init {
+        stopLoading()
+    }
 
     private val _userList = MutableLiveData<MutableList<UserLocal>>(mutableListOf())
     val userList: LiveData<MutableList<UserLocal>>
