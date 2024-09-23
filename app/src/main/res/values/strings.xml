@@ -12,6 +12,7 @@
     <string name="search">Search</string>
     <string name="input_username">Input Username</string>
     <string name="cancel">Cancel</string>
+    <string name="colon">:</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="company">Company</string>

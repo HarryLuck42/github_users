@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.corp.luqman.githubusers.data.models.response.UserDetail
-import com.corp.luqman.githubusers.data.models.response.UserLocal
 import com.corp.luqman.githubusers.data.repository.UsersRepository
 import com.corp.luqman.githubusers.utils.UiState
 import com.corp.luqman.githubusers.utils.isMoreThan
