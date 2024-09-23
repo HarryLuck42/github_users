@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Githut Users</string>
+    <string name="sinopsis">sinopsis</string>
+    <string name="detail">detail</string>
+    <string name="ok">OK</string>
+    <string name="perhatian">Perhatian</string>
+    <string name="loading">Loading...</string>
+    <string name="production">Production</string>
+    <string name="not_found_detail">Not Found Any Detail</string>
+    <string name="not_found_users">Not Found Any Users</string>
+    <string name="reload">Reload</string>
+    <string name="submit">Submit</string>
+    <string name="search">Search</string>
+    <string name="input_username">Input Username</string>
+    <string name="cancel">Cancel</string>
+    <string name="nav_header_subtitle">Hariyanto Lukman</string>
+</resources>

@@ -1,0 +1,18 @@
+*.iml
+.gradle
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/misc.xml
+/.idea/assetWizardSettings.xml
+/build
+build/
+.idea/
+.idea/shelf/
+.idea/libraries 4/
+.idea/sonarlint/
+app/build/outputs/apk/

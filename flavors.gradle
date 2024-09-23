@@ -1,0 +1,35 @@
+def envPropertiesFile = rootProject.file("env.properties")
+def envProperties = new Properties()
+envProperties.load(new FileInputStream(envPropertiesFile))
+
+ext.flavorConfig = {
+
+    flavorDimensions "server"
+
+    productFlavors {
+        tst{
+            dimension "server"
+            buildConfigField("String", "BASE_URL", envProperties['BASE_URL'])
+            buildConfigField("String", "IMAGE_BASE_URL", envProperties['IMAGE_BASE_URL'])
+        }
+        stagging{
+            dimension "server"
+            buildConfigField("String", "BASE_URL", envProperties['BASE_URL'])
+            buildConfigField("String", "IMAGE_BASE_URL", envProperties['IMAGE_BASE_URL'])
+        }
+        production{
+            dimension "server"
+            buildConfigField("String", "BASE_URL", envProperties['BASE_URL'])
+            buildConfigField("String", "IMAGE_BASE_URL", envProperties['IMAGE_BASE_URL'])
+        }
+        productFlavors.all { flavor ->
+            if (flavor.hasProperty('myApplicationIdSuffix') && isApplicationProject()) {
+                flavor.applicationIdSuffix = flavor.myApplicationIdSuffix
+            }
+        }
+    }
+}
+
+def isApplicationProject() {
+    return project.android.class.simpleName.startsWith('BaseAppModuleExtension')
+}
